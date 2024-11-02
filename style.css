@@ -20,17 +20,18 @@ a:hover {
 }
 
 button {
-    background-color: #2ea44f;
+    background-color: black;
     color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40%;
     cursor: pointer;
-    font-size: 14px;
 }
 
 button:hover {
-    background-color: #22863a;
+    background-color: rgb(36, 35, 35);
 }
 
 div {
@@ -90,12 +91,6 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
 #hide_image {
     margin-bottom: 2px;
 }
-#install_btn {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    width: 70px;
-}
 .header_btn {
     background: none;
     color: gray;
@@ -115,4 +110,12 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
 }
 .link:hover {
     color: #0366d6;
+}
+#disclaimer {
+    background-color: purple;
+    color: #f6f8fa;
+    appearance: 70%;
+}
+.lk_ls {
+    color: rgb(179, 176, 176);
 }

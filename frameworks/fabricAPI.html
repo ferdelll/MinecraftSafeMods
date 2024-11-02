@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        const sourceFile = '../index.html';
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", sourceFile, true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        const parser = new DOMParser();
+        const sourceDoc = parser.parseFromString(xhr.responseText, "text/html");
+
+        // Копирование и вставка тега с id="header" в начало страницы
+        const headerElement = sourceDoc.getElementById("header");
+        if (headerElement) {
+            document.body.insertAdjacentElement('afterbegin', headerElement.cloneNode(true));
+            console.log("Тег header успешно скопирован и вставлен в начало текущей страницы.");
+        } else {
+            console.log("Тег с id='header' не найден в файле index.html.");
+        }
+
+        // Копирование и вставка тега с id="footer" в конец страницы
+        const footerElement = sourceDoc.getElementById("footer");
+        if (footerElement) {
+            document.body.insertAdjacentElement('beforeend', footerElement.cloneNode(true));
+            console.log("Тег footer успешно скопирован и вставлен в конец текущей страницы.");
+        } else {
+            console.log("Тег с id='footer' не найден в файле index.html.");
+        }
+    } else if (xhr.readyState === 4) {
+        console.error("Ошибка загрузки файла:", xhr.status);
+    }
+};
+xhr.send();
+
+    </script>
+</head>
+<body>
+    <div id="head">
+        <h1>Fabric API</h1>
+        <p>Download at link below</p>
+        </button>
+    </div>
+    <div id="desciption">
+        <div class="markdown-body card"><h1>Fabric API</h1>
+            <p>Essential hooks for modding with Fabric.</p>
+            <p>Fabric API is the library for essential hooks and interoperability mechanisms for Fabric mods. Examples include:</p>
+            <ul>
+            <li>Exposing functionality that is useful but difficult to access for many mods such as particles, biomes and dimensions</li>
+            <li>Adding events, hooks and APIs to improve interopability between mods.</li>
+            <li>Essential features such as registry synchronization and adding information to crash reports.</li>
+            <li>An advanced rendering API designed for compatibility with optimization mods and graphics overhaul mods.</li>
+            </ul>
+            <p>Also check out <a href="https://github.com/FabricMC/fabric-loader" rel="noopener nofollow ugc">Fabric Loader</a>, the (mostly) version-independent mod loader that powers Fabric. Fabric API is a mod like any other Fabric mod which requires Fabric Loader to be installed.</p>
+            <p>For support and discussion for both developers and users, visit <a href="https://discord.gg/v6v4pMv" rel="noopener nofollow ugc">the Fabric Discord server</a>.</p>
+            <h2>Using Fabric API to play with mods</h2>
+            <p>Make sure you have install fabric loader first. More information about installing Fabric Loader can be found <a href="https://fabricmc.net/use/" rel="noopener nofollow ugc">here</a>.</p>
+            <p>The downloaded jar file should be placed in your <code>mods</code> folder.</p>
+            </div>
+    </div>
+    <div id="version">
+        <p>Mod version</p>
+
+        <table>
+            <li><a href="https://cdn.modrinth.com/data/P7dR8mSH/versions/VOZ8sKAb/fabric-api-0.75.0%2B1.19.2.jar">[1.19.2] Fabric API 0.75.0+1.19.2</a></li>
+            <li><a href="https://cdn.modrinth.com/data/P7dR8mSH/versions/0.29.3%2B1.16/fabric-api-0.29.3%2B1.16.jar">[1.16.4] Fabric API 0.29.3</a></li>
+        </table>
+    </div>
+
+</body>
+</html>

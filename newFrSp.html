@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const sourceFile = 'index.html';
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", sourceFile, true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        const parser = new DOMParser();
+        const sourceDoc = parser.parseFromString(xhr.responseText, "text/html");
+
+        // Копирование и вставка тега с id="header" в начало страницы
+        const headerElement = sourceDoc.getElementById("header");
+        if (headerElement) {
+            document.body.insertAdjacentElement('afterbegin', headerElement.cloneNode(true));
+            console.log("Тег header успешно скопирован и вставлен в начало текущей страницы.");
+        } else {
+            console.log("Тег с id='header' не найден в файле index.html.");
+        }
+
+        // Копирование и вставка тега с id="footer" в конец страницы
+        const footerElement = sourceDoc.getElementById("footer");
+        if (footerElement) {
+            document.body.insertAdjacentElement('beforeend', footerElement.cloneNode(true));
+            console.log("Тег footer успешно скопирован и вставлен в конец текущей страницы.");
+        } else {
+            console.log("Тег с id='footer' не найден в файле index.html.");
+        }
+    } else if (xhr.readyState === 4) {
+        console.error("Ошибка загрузки файла:", xhr.status);
+    }
+};
+xhr.send();
+
+    </script>
+</head>
+<body>
+    <div class="content">
+        <h1>Framework now downloadable</h1>
+        <p>
+            <table>
+                <li><a href="frameworks/fabricAPI.html" class="link">fabricApi</a></li>
+            </table>
+        </p>
+    </div>
+</body>
+</html>
